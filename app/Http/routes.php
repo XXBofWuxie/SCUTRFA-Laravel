@@ -21,3 +21,8 @@ Route::get('competition/sign-up', function() {
 
 Route::get('competition/export', 'Competition@export');
 
+Route::post('file-upload', 'Health@save');
+
+Route::get('file-upload', function() {
+    return view('fileupload');
+});
