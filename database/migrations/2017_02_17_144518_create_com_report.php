@@ -17,11 +17,13 @@ class CreateComReport extends Migration
             $table->comment = '报道评论表';
             $table->increments('id');
             $table->integer('user_id', false, true)->comment('user表外键');
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->index('user_id');
+            //$table->foreign('user_id')->references('id')->on('user');
             $table->integer('article_id', false, true)->comment('report表外键');
-            $table->foreign('article_id')->references('id')->on('report');
+            $table->index('article_id');
+            //$table->foreign('article_id')->references('id')->on('report');
             $table->text('content')->comment('评论内容');
-            $table->integer('create_time')->comment('创建时间戳');
+            $table->integer('create_time', false, true)->comment('创建时间戳');
         });
     }
 

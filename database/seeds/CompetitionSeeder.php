@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\CompetitionTeam;
 
 class CompetitionSeeder extends Seeder
 {
@@ -11,7 +12,7 @@ class CompetitionSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\CompetitionTeam::class, 20)->create()->each(function($team) {
+        factory(App\CompetitionTeam::class, 20)->create()->each(function(CompetitionTeam $team) {
             $team->competitionMember()->save(factory(App\CompetitionMember::class)->make([
                 'is_leader' => true,
             ]));

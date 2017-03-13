@@ -2,9 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
 
-class CreateReport extends Migration
+class CreateRepairTrick extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +12,13 @@ class CreateReport extends Migration
      */
     public function up()
     {
-        Schema::create('report', function (Blueprint $table) {
+        Schema::create('repair_trick', function (Blueprint $table) {
             $table->comment = '报道表';
             $table->increments('id');
             $table->char('title', 60)->comment('标题');
             $table->string('abstract', 150)->comment('简介');
-            $table->integer('create_time', false, true)->comment('创建时间戳');
-            $table->integer('update_time', false, true)->comment('更新时间戳');
+            $table->integer('create_time', false, true);
+            $table->integer('update_time', false, true);
         });
     }
 
@@ -30,6 +29,6 @@ class CreateReport extends Migration
      */
     public function down()
     {
-        Schema::drop('report');
+        Schema::drop('repair_trick');
     }
 }

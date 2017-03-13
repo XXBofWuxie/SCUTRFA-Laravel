@@ -20,7 +20,6 @@ class CreateActivity extends Migration
             $table->string('abstract', 150)->comment('活动的简介');
             $table->text('schedule')->comment('活动的时间表，进行php序列化储存');
             $table->string('sign_up_url')->comment('报名的外部链接');
-            $table->string('poster_url')->comment('海报的外部链接');
         });
     }
 

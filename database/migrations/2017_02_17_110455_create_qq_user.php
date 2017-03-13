@@ -18,7 +18,8 @@ class CreateQqUser extends Migration
             $table->comment = 'qq授权信息表';
             $table->increments('id');
             $table->integer('user_id', false, true)->comment('user表外键');
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->index('user_id');
+            //$table->foreign('user_id')->references('id')->on('user');
             $table->char('open_id', 32)->comment('用户的openid');
             $table->char('access_token', 32)->comment('用户的口令');
             $table->char('refresh_token', 32)->comment('刷新用口令');

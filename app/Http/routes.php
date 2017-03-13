@@ -23,6 +23,10 @@ Route::get('competition/export', 'Competition@export');
 
 Route::post('file-upload', 'Health@save');
 
-Route::get('file-upload', function() {
-    return view('fileupload');
+Route::get('show-charts', function() {
+    return view('echart');
 });
+
+Route::get('get-chart-data', 'HealthCharts@getChartData');
+
+Route::get('get-charts-list', 'HealthCharts@getChartsList');

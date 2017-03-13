@@ -17,9 +17,10 @@ class CreateFeedback extends Migration
             $table->comment = '反馈提问表';
             $table->increments('id');
             $table->integer('user_id', false, true)->comment('user表外键');
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->index('user_id');
+            //$table->foreign('user_id')->references('id')->on('user');
             $table->text('content')->comment('提问内容');
-            $table->integer('create_time')->comment('提交时间戳');
+            $table->integer('create_time', false, true)->comment('提交时间戳');
         });
     }
 
