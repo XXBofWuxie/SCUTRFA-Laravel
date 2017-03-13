@@ -17,11 +17,13 @@ class CreateFeedbackResponse extends Migration
             $table->comment = '提问回答表';
             $table->increments('id');
             $table->integer('user_id', false, true)->comment('用户表外键');
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->index('user_id');
+            //$table->foreign('user_id')->references('id')->on('user');
             $table->integer('question_id', false, true)->comment('提问表外键');
-            $table->foreign('question_id')->references('id')->on('feedback');
+            $table->index('question_id');
+            //$table->foreign('question_id')->references('id')->on('feedback');
             $table->text('content')->comment('回答内容');
-            $table->integer('create_time')->comment('创建时间戳');
+            $table->integer('create_time', false, true)->comment('创建时间戳');
         });
     }
 

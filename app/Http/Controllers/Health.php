@@ -29,6 +29,7 @@ class Health extends Controller
         ModelHealth::create([
             'data_type' => $this->dataType,
             'data_time' => $this->date,
+            'create_time' => time(),
             'data' => serialize($dataObj)
         ]);
         return response('true');
