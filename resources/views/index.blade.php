@@ -14,26 +14,26 @@
         <h1 class="color-3B4356">互联网报名</h1>
 
         <input type="text" name="tname" placeholder="队伍名（20字以内）">
-        <textarea class="textarea-style" placeholder="口号（255字以内）"></textarea>
+        <textarea class="textarea-style" placeholder="口号（必填，255字以内）"></textarea>
 
         <div class="member-info">
             <label class="member-order color-474E61">队长：</label>
             <input class="input-style" type="text" name="name" placeholder="姓名">
-            <input class="input-style" type="text" name="tel" placeholder="联系电话">
+            <input class="input-style" type="text" name="tel" placeholder="联系电话（长号）">
             <input class="input-style" type="text" name="qq" placeholder="QQ">
         </div>
 
         <div class="member-info" id="member_1">
             <label class="member-order color-474E61">队员：</label>
             <input class="input-style" type="text" name="name" placeholder="姓名">
-            <input class="input-style" type="text" name="tel" placeholder="联系电话">
+            <input class="input-style" type="text" name="tel" placeholder="联系电话（长号）">
             <input class="input-style" type="text" name="qq" placeholder="QQ">
         </div>
 
         <div class="member-info" id="member_2">
             <label class="member-order color-474E61">队员：</label>
             <input class="input-style" type="text" name="name" placeholder="姓名">
-            <input class="input-style" type="text" name="tel" placeholder="联系电话">
+            <input class="input-style" type="text" name="tel" placeholder="联系电话（长号）">
             <input class="input-style" type="text" name="qq" placeholder="QQ">
         </div>
 
@@ -47,7 +47,7 @@
         <div class="attention color-474E61">
             <p class="attention-title">注意：</p>
             <p class="attention-piece">1.队伍人数不得超过3人</p>
-            <p class="attention-piece">2.线上报名截止时间为xxxx,你也可以到所在学校指定报名点提交纸质报名表。</p>
+            <p class="attention-piece">2.线上报名截止时间为3月18日24时,你也可以到所在学校指定报名点提交纸质报名表。</p>
             <p class="attention-piece">3.确保所填信息无误后方可提交。</p>
         </div>
 
