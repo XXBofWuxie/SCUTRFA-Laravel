@@ -138,6 +138,7 @@ var chartLoad = function() {
 		} else {
 			option.series[0].itemStyle.normal.color = 'red';
 		}
+		console.log(option);
 		require([ 'echarts', 'echarts/theme/macarons', 'echarts/chart/line',
 				'echarts/chart/bar' ], function(ec, theme) {
 			var myChart = ec.init(document.getElementById('main'), theme);
@@ -174,33 +175,11 @@ var actionHandler = function(Request, Chart) {
 		select.append("<option>收集时间</option>");
 		if (type == 1) {
 			$.each(chartsListPackage.heartbeat, function(index, time) {
-				date = new Date(1000 * time.data_time);
-				Y = date.getFullYear() + '-';
-				M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1)
-						: date.getMonth() + 1)
-						+ '-';
-				D = date.getDate() + ' ';
-				h = (date.getHours() < 10 ? '0' + date.getHours() : date
-						.getHours())
-						+ '时';
-				m = date.getMinutes() + '分';
-				select.append("<option value='" + time.create_time + "'>" + Y
-						+ M + D + h + m + "</option>");
+				select.append("<option value='" + time.create_time + "'>" + time.data_time + "</option>");
 			});
 		} else {
 			$.each(chartsListPackage.pulse, function(index, time) {
-				date = new Date(1000 * time.data_time);
-				Y = date.getFullYear() + '-';
-				M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1)
-						: date.getMonth() + 1)
-						+ '-';
-				D = date.getDate() + ' ';
-				h = (date.getHours() < 10 ? '0' + date.getHours() : date
-						.getHours())
-						+ '时';
-				m = date.getMinutes() + '分';
-				select.append("<option value='" + time.create_time + "'>" + Y
-						+ M + D + h + m + "</option>");
+				select.append("<option value='" + time.create_time + "'>"+ time.data_time + "</option>");
 			});
 		}
 	}
