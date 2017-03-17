@@ -81,7 +81,7 @@ var chartLoad = function() {
 					name : ''
 				} ]
 			},
-			symbol : 'emptyCircle',
+			symbol : 'none',
 			itemStyle : {
 				normal : {
 					color : 'green',
@@ -104,6 +104,8 @@ var chartLoad = function() {
 	}
 
 	this.createChart = function(data, dataType) {
+		data = data['data'];
+		data.pop();
 		var type = (dataType == 1) ? '心率' : '脉搏';
 		var average = 0;
 		var max = 0;
@@ -116,6 +118,7 @@ var chartLoad = function() {
 		option.xAxis[0].data.length = 0;
 		option.series[0].data.length = 0;
 		$.each(data, function(index, element) {
+			element = parseInt(element);
 			if (max < element) {
 				max = element;
 			}
@@ -138,7 +141,6 @@ var chartLoad = function() {
 		} else {
 			option.series[0].itemStyle.normal.color = 'red';
 		}
-		console.log(option);
 		require([ 'echarts', 'echarts/theme/macarons', 'echarts/chart/line',
 				'echarts/chart/bar' ], function(ec, theme) {
 			var myChart = ec.init(document.getElementById('main'), theme);
@@ -170,16 +172,27 @@ var actionHandler = function(Request, Chart) {
 
 	var selectType = function(type) {
 		var select = $('#time');
-		var date;
 		select.empty();
 		select.append("<option>收集时间</option>");
 		if (type == 1) {
 			$.each(chartsListPackage.heartbeat, function(index, time) {
-				select.append("<option value='" + time.create_time + "'>" + time.data_time + "</option>");
+				var Y = time.data_time.substring(0, 4) + '.';
+               	 		var Mon = time.data_time.substring(4, 6) + '.';
+                		var D = time.data_time.substring(6, 8) + '  ';
+               			var H = time.data_time.substring(8, 10) + ':';
+                		var Min = time.data_time.substring(10, 12);
+                		var date = Y + Mon + D + H + Min;
+				select.append("<option value='" + time.create_time + "'>" + date + "</option>");
 			});
 		} else {
 			$.each(chartsListPackage.pulse, function(index, time) {
-				select.append("<option value='" + time.create_time + "'>"+ time.data_time + "</option>");
+                        	var Y = time.data_time.substring(0, 4) + '.';
+                        	var Mon = time.data_time.substring(4, 6) + '.';
+                        	var D = time.data_time.substring(6, 8) + '  ';
+                        	var H = time.data_time.substring(8, 10) + ':';
+                        	var Min = time.data_time.substring(10, 12);
+                        	var date = Y + Mon + D + H + Min;
+				select.append("<option value='" + time.create_time + "'>"+ date + "</option>");
 			});
 		}
 	}

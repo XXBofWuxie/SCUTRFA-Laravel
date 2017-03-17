@@ -19,7 +19,7 @@ Route::get('competition/sign-up', function() {
     return view('index');
 });
 
-Route::get('competition/export', 'Competition@export');
+Route::get('competition/export-me', 'Competition@export');
 
 Route::post('file-upload', 'Health@save');
 
