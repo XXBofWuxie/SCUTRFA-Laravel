@@ -9,7 +9,7 @@
         		请选择数据类型
         		<select id="type">
         			<option value="0">数据类型</option>
-        			<option value="1">心率</option>
+        			<option value="1">心电</option>
         			<option value="2">脉搏</option>
         		</select>
         	</p>
